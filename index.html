@@ -1,1 +1,31 @@
-f
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>FAC19 The Pokemon Choose You</title>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="loggedOutNav">
+    <head>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/signup">Sign Up</a>
+        <a href="/logout">Log In</a>
+      </nav>
+    </head>
+  </template>
+  <template id="loggedInNav">
+    <head>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/your-pokemon">My Pokemon</a>
+        <a href="/logout">Log Out</a>
+      </nav>
+    </head>
+  </template>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
