@@ -25,33 +25,34 @@ function newPokemon({ redirect }) {
 		app.innerHTML = loggedoutHTML;
 		app.querySelector("nav").append(domFrag);
 		app
-		.querySelector("#errorMessage")
-		.append("You must be logged in to add a new pokemon.");
+			.querySelector("#errorMessage")
+			.append("You must be logged in to add a new pokemon.");
 	} else {
 		const domFrag = loggedInNav.content.cloneNode(true);
 		app.innerHTML = loggedinHTML;
 		app.querySelector("nav").append(domFrag);
 
 		const form = app.querySelector("form");
-		form.addEventListener("submit", ()=> {
+		form.addEventListener("submit", () => {
 			event.preventDefault();
 			const formData = new FormData(event.target);
 			const formObject = Object.fromEntries(formData);
-			console.log(formObject); 
-			query(`https://dogs-rest.herokuapp.com/v1/dogs`, {
+			console.log(formObject);
+			query(`https://fac19-pokemon.herokuapp.com/v1/dogs`, {
 				method: "POST",
 				headers: {
-					"authorization": `Bearer ${token}`,
+					authorization: `Bearer ${token}`,
 					"content-type": "application/json"
 				},
 				body: JSON.stringify(formObject)
-			}).then(() => {
-				redirect("/my-pokemon");
-			}).catch((error) => {
-				console.error(error);
-				app.querySelector("#errorMessage").append("Something went wrong :(");
-			});
-
+			})
+				.then(() => {
+					redirect("/my-pokemon");
+				})
+				.catch((error) => {
+					console.error(error);
+					app.querySelector("#errorMessage").append("Something went wrong :(");
+				});
 		});
 	}
 }
