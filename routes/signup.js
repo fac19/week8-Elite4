@@ -1,8 +1,12 @@
 import query from "../query.js";
 
 const app = document.querySelector("#app");
+const loggedOutNav = document.querySelector("#loggedOutNav");
 
 const html = /*html*/ `
+<nav>
+  <a href="/">Home</a>
+</nav>
 <form class="signup-form"> 
 
   <label for="email">Email</label>
@@ -34,7 +38,7 @@ function signUp ({ redirect }) {
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData);
     
-    query("https://dogs-rest.herokuapp.com/v1/users", {
+    query("https://fac19-pokemon.herokuapp.com/v1/users", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formObject)

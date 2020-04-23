@@ -29,7 +29,6 @@ function home() {
 	} else {
 		const domFrag = loggedInNav.content.cloneNode(true);
 		app.querySelector("nav").append(domFrag);
-		//add new pokemon button when new-pokemon route has been created
 	}
 
 	query("https://fac19-pokemon.herokuapp.com/v1/dogs")

@@ -3,6 +3,9 @@ import query from "../query.js";
 const app = document.querySelector("#app");
 
 const html = /*html*/ `
+<nav>
+  <a href="/">Home</a>
+</nav>
 <form class="login-form"> 
 
   <label for="email">Email</label>
@@ -29,7 +32,7 @@ function logIn ({ redirect }) {
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData);
 
-    query("https://dogs-rest.herokuapp.com/v1/users/login", {
+    query("https://fac19-pokemon.herokuapp.com/v1/users/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formObject)
