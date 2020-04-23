@@ -31,7 +31,7 @@ function home() {
 		app.querySelector("nav").append(domFrag);
 	}
 
-	query("https://dogs-rest.herokuapp.com/v1/dogs")
+	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
 			console.log(pokeArr);
 			const pokemonList = pokeArr.map((pokemon) =>
