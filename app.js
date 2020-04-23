@@ -5,7 +5,7 @@ import signUp from "./routes/signup.js";
 // import logIn from "./routes/login.js";
 import missing from "./routes/missing.js";
 // import newPokemon from "./routes/new-pokemon.js";
-// import yourPokemon from "./routes/your-pokemon.js";
+// import myPokemon from "./routes/my-pokemon.js";
 
 const app = router();
 
@@ -14,6 +14,6 @@ app.get("/sign-up", signUp);
 // app.get("/log-in", logIn);
 app.get("default", missing);
 // app.get("/new-pokemon", newPokemon);
-// app.get("your-pokemon", yourPokemon);
+// app.get("/my-pokemon", myPokemon);
 
 app.listen();
