@@ -26,7 +26,7 @@ const html = /*html*/ `
 </form>
 `;
 
-function signUp () {
+function signUp ({ redirect }) {
   app.innerHTML = html;
 
   app.querySelector(".signup-form").addEventListener("submit", (event) => {
