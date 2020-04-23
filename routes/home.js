@@ -21,7 +21,6 @@ function createPokemonListItem(pokemon) {
 }
 
 function home() {
-	console.log("home handler running");
 	app.innerHTML = html;
 	const token = localStorage.getItem("token");
 	if (!token) {
@@ -33,7 +32,7 @@ function home() {
 		//add new pokemon button when new-pokemon route has been created
 	}
 
-	query("https://dogs-rest.herokuapp.com/v1/dogs")
+	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
 			console.log(pokeArr);
 			const pokemonList = pokeArr.map((pokemon) =>
