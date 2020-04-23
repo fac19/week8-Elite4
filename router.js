@@ -11,11 +11,12 @@ function router() {
 		objCallback();
 	}
 
-	function handleClick(e) {
+	function handleClick(event) {
 		// if (e.button)
-		if (e.target.tagName === "A") {
-			e.preventDefault();
-			navigate(e.target.href);
+		if (event.target.tagName === "A") {
+			event.preventDefault();
+			window.history.pushState(null, null, event.target.href);
+			navigate(event.target.href);
 		}
 	}
 
@@ -23,7 +24,9 @@ function router() {
 
 	function listen() {
 		window.addEventListener("click", handleClick);
-		// window.addEventListener("popState", handleClick);
+		// window.addEventListener("popState", () => {
+		// 	return navigate(window.location);
+		// });
 	}
 
 	return { get, navigate, redirect, listen };

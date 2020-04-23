@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"dev": "servor router.js"
+		"dev": "servor"
 	},
 	"repository": {
 		"type": "git",
