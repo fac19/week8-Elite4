@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"dev": "servor . index.html 3000"
+		"dev": "servor "
 	},
 	"repository": {
 		"type": "git",
