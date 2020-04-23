@@ -29,10 +29,9 @@ function home() {
 	} else {
 		const domFrag = loggedInNav.content.cloneNode(true);
 		app.querySelector("nav").append(domFrag);
-		//add new pokemon button when new-pokemon route has been created
 	}
 
-	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
+	query("https://dogs-rest.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
 			console.log(pokeArr);
 			const pokemonList = pokeArr.map((pokemon) =>

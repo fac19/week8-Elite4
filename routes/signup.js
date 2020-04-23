@@ -1,8 +1,12 @@
 import query from "../query.js";
 
 const app = document.querySelector("#app");
+const loggedOutNav = document.querySelector("#loggedOutNav");
 
 const html = /*html*/ `
+<nav>
+  <a href="/">Home</a>
+</nav>
 <form class="signup-form"> 
 
   <label for="email">Email</label>
