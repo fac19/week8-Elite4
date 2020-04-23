@@ -3,6 +3,9 @@ import query from "../query.js";
 const app = document.querySelector("#app");
 
 const html = /*html*/ `
+<nav>
+  <a href="/">Home</a>
+</nav>
 <form class="login-form"> 
 
   <label for="email">Email</label>
