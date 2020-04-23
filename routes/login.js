@@ -3,7 +3,7 @@ import query from "../query.js";
 const app = document.querySelector("#app");
 
 const html = /*html*/ `
-<form class="signup-form"> 
+<form class="login-form"> 
 
   <label for="email">Email</label>
   <input type="email" id="email" 
@@ -24,7 +24,7 @@ const html = /*html*/ `
 function logIn ({ redirect }) {
   app.innerHTML = html;
 
-  app.querySelector(".signup-form").addEventListener("submit", (event) => {
+  app.querySelector(".login-form").addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData);
@@ -35,7 +35,6 @@ function logIn ({ redirect }) {
       body: JSON.stringify(formObject)
     })
       .then((body) => {
-      console.log("signUp -> body", body)
         window.localStorage.setItem("token", body.access_token);
         window.localStorage.setItem("userId", body.id);
         redirect("/");
