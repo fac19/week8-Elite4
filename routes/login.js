@@ -21,30 +21,29 @@ const html = /*html*/ `
 </form>
 `;
 
-function logIn ({ redirect }) {
-  app.innerHTML = html;
+function logIn({ redirect }) {
+	app.innerHTML = html;
 
-  app.querySelector(".login-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const formObject = Object.fromEntries(formData);
+	app.querySelector(".login-form").addEventListener("submit", (event) => {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const formObject = Object.fromEntries(formData);
 
-    query("https://dogs-rest.herokuapp.com/v1/users/login", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(formObject)
-    })
-      .then((body) => {
-        window.localStorage.setItem("token", body.access_token);
-        window.localStorage.setItem("userId", body.id);
-        redirect("/");
-      })
-      .catch((error) => {
-        console.error(error);
-        app.querySelector("#errorMessage").append("Something went wrong :(");
-      });
-  })
+		query("https://fac19-pokemon.herokuapp.com//v1/users/login", {
+			method: "POST",
+			headers: { "content-type": "application/json" },
+			body: JSON.stringify(formObject)
+		})
+			.then((body) => {
+				window.localStorage.setItem("token", body.access_token);
+				window.localStorage.setItem("userId", body.id);
+				redirect("/");
+			})
+			.catch((error) => {
+				console.error(error);
+				app.querySelector("#errorMessage").append("Something went wrong :(");
+			});
+	});
 }
 
 export default logIn;
-
