@@ -4,7 +4,7 @@ import signUp from "./routes/signup.js";
 import logIn from "./routes/login.js";
 import missing from "./routes/missing.js";
 // import newPokemon from "./routes/new-pokemon.js";
-// import myPokemon from "./routes/my-pokemon.js";
+import myPokemon from "./routes/my-pokemon.js";
 
 const app = router();
 
@@ -13,6 +13,6 @@ app.get("/sign-up", signUp);
 app.get("/login", logIn);
 app.get("default", missing);
 // app.get("/new-pokemon", newPokemon);
-// app.get("/my-pokemon", myPokemon);
+app.get("/my-pokemon", myPokemon);
 
 app.listen();
