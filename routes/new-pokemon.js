@@ -38,7 +38,7 @@ function newPokemon({ redirect }) {
 			const formData = new FormData(event.target);
 			const formObject = Object.fromEntries(formData);
 			console.log(formObject); 
-			query(`https://fac19-pokemon.herokuapp.com/v1/dogs`, {
+			query(`https://dogs-rest.herokuapp.com/v1/dogs`, {
 				method: "POST",
 				headers: {
 					"authorization": `Bearer ${token}`,

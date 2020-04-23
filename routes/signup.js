@@ -38,7 +38,7 @@ function signUp ({ redirect }) {
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData);
     
-    query("https://fac19-pokemon.herokuapp.com/v1/users", {
+    query("https://dogs-rest.herokuapp.com/v1/users", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formObject)
