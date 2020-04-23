@@ -14,8 +14,8 @@ To run the project locally:
 
 ## What can you do?
 ### Signed out you can
-- GET request for all pokemon on [homepage](https://fac19-pokemon.netlify.app/).
-- Make POST requests and [sign up](https://fac19-pokemon.netlify.app/sign-up) or [log in](https://fac19-pokemon.netlify.app/login).
+- GET request for all pokemon on homepage.
+- Make POST requests and sign up or log in.
 
 ### Signed in you can 
 - Make a POST request to add a new pokemon.
