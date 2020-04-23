@@ -28,6 +28,8 @@ function newPokemon() {
 		const domFrag = loggedInNav.content.cloneNode(true);
 		app.innerHTML = loggedinHTML;
 		app.querySelector("nav").append(domFrag);
+
+		app.querySelector("form").addEventListener("submit");
 	}
 }
 
