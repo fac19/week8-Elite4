@@ -8,11 +8,24 @@ function router() {
 	function navigate(url) {
 		const parsedURL = new URL(url);
 		const objCallback = routes[parsedURL.pathname];
-		objCallback();
+		if (objCallback) {
+			const obj = { urlObj: parsedURL, redirect };
+			objCallback(obj);
+		} else {
+			const defaultCallback = routes["default"];
+			defaultCallback();
+		}
 	}
 
 	function handleClick(event) {
-		// if (e.button)
+		if (
+			event.button !== 0 ||
+			event.metaKey ||
+			event.shiftKey ||
+			event.altKey ||
+			event.ctrlKey
+		)
+			return;
 		if (event.target.tagName === "A") {
 			event.preventDefault();
 			window.history.pushState(null, null, event.target.href);
@@ -20,16 +33,23 @@ function router() {
 		}
 	}
 
-	function redirect() {}
-
-	function listen() {
-		window.addEventListener("click", handleClick);
-		// window.addEventListener("popState", () => {
-		// 	return navigate(window.location);
-		// });
+	function redirect(path) {
+		const fullURL = window.location.origin + path;
+		window.history.pushState(null, null, fullURL);
+		navigate(fullURL);
 	}
 
-	return { get, navigate, redirect, listen };
+	function listen() {
+		navigate(window.location);
+		window.addEventListener("click", handleClick);
+		window.addEventListener("popstate", () => {
+			navigate(window.location);
+		});
+	}
+
+	//also a close() function in workshop solution but add it here if it is needed
+
+	return { get, navigate, listen };
 }
 
 export default router;
