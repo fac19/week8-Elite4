@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"dev": "servor"
+		"dev": "servor . index.html 3000"
 	},
 	"repository": {
 		"type": "git",
@@ -17,6 +17,7 @@
 	},
 	"homepage": "https://github.com/fac19/week8-TheElite4#readme",
 	"dependencies": {
+		"cors": "^2.8.5",
 		"eslint": "^6.8.0",
 		"nodemon": "^2.0.3",
 		"servor": "^3.2.0"
