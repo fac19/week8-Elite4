@@ -16,4 +16,6 @@ app.get("default", missing);
 // app.get("/new-pokemon", newPokemon);
 // app.get("/my-pokemon", myPokemon);
 
+app.get("default", () => console.log("404 page"));
+// app.navigate("http://localhost:8080/");
 app.listen();
