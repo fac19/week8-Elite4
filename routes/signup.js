@@ -34,18 +34,18 @@ function signUp () {
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData);
     console.log("signUp -> formObject", formObject);
-    console.log("signUp -> JSON.stringify(formObject)", JSON.stringify(formObject))
+    console.log("signUp -> JSON.stringify(formObject)", typeof JSON.stringify(formObject))
 
     query("https://dogs-rest.herokuapp.com/v1/users", {
       method: "POST",
-      body: JSON.stringify(formObject),
-      
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(formObject)
     })
       .then((body) => {
       console.log("signUp -> body", body)
-        // window.localStorage.setItem("token", body.access_token);
-        // window.localStorage.setItem("userId", body.id);
-        // redirect("/");
+        window.localStorage.setItem("token", body.access_token);
+        window.localStorage.setItem("userId", body.id);
+        redirect("/");
       })
       .catch((error) => {
         console.error(error);
