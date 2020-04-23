@@ -13,11 +13,15 @@ To run the project locally:
 3. Grab a cool beverage. Sit back, relax. It's Friday baby.
 
 ## What can you do?
-- GET request for all pokemon on [homepage]().
+### Signed out you can
+- GET request for all pokemon on [homepage](https://fac19-pokemon.netlify.app/).
 - Make POST requests and [sign up](https://fac19-pokemon.netlify.app/sign-up) or [log in](https://fac19-pokemon.netlify.app/login).
 
+### Signed in you can 
+- Make a POST request to add a new pokemon.
+- Make a GET request to see your pokemon!
+
 ## Help us code reviewers!
-- Cannot get the new pokemon POST request to work.
 - Struggling to understand what [servor](https://www.npmjs.com/package/servor) does. Also, why will the project deploy on Netlify but not GitHub pages..? What is a server again?
 
 ## Project Brief
