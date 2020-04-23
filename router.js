@@ -11,6 +11,14 @@ function router() {
 		objCallback();
 	}
 
+	function handleClick(e) {
+		// if (e.button)
+		if (e.target.tagName === "A") {
+			e.preventDefault();
+			navigate(e.target.href);
+		}
+	}
+
 	function redirect() {}
 
 	function listen() {
