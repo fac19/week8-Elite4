@@ -29,7 +29,7 @@ function newPokemon() {
 		app.innerHTML = loggedinHTML;
 		app.querySelector("nav").append(domFrag);
 
-		app.querySelector("form").addEventListener("submit");
+		app.querySelector("form").addEventListener("submit"); //No time to finish this);
 	}
 }
 
