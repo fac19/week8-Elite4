@@ -16,10 +16,48 @@ function createMyPokemonListItem(pokemon) {
 	if (pokemon.owner === parseInt(userId)) {
 		const li = document.createElement("li");
 		const h3 = document.createElement("h3");
-		h3.append(pokemon.name);
 		const type = document.createElement("p");
+		const deleteBut = document.createElement("button");
+		const editBut = document.createElement("button");
+		h3.append(pokemon.name);
 		type.append(pokemon.breed);
-		li.append(h3, type);
+		deleteBut.append("Delete");
+		editBut.append("Edit"); 
+		
+		deleteBut.addEventListener("click", ()=>{
+			const token = localStorage.getItem("token");
+			query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
+				method: "DELETE",
+				headers: {
+					authorization: `Bearer ${token}`
+				}
+			})
+			.then(()=>{
+				li.remove(); 
+			}).catch(()=>{
+				console.error(error);
+				app.querySelector("#errorMessage").append("Deleting pokemon failed");
+			})
+		});
+
+		// editBut.addEventListener("click", ()=>{
+		// 	const token = localStorage.getItem("token");
+		// 	query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
+		// 		method: "PUT",
+		// 		headers: {
+		// 			authorization: `Bearer ${token}`,
+		// 			body: {"name": ``}
+		// 		}
+		// 	})
+		// 	.then(()=>{
+				
+		// 	}).catch(()=>{
+		// 		console.error(error);
+		// 		app.querySelector("#errorMessage").append("Editing pokemon failed");
+		// 	})
+		// });
+	
+		li.append(h2, type, deleteBut, editBut);
 		return li;
 	} else {
 		return "";
