@@ -10,9 +10,9 @@ const loggedinHTML = /*html*/ `
 <h2>Add a new Pokemon</h2>
 <form>
 <label for='name'>Name: </label>
-<input type='text' name='name' id='name' minlength="1" maxlength="50">
+<input type='text' name='name' id='name' minlength="1" maxlength="50" required>
 <label for='breed'>Species: </label>
-<input type='text' name='breed' id='breed' minlength="1" maxlength="30">
+<input type='text' name='breed' id='breed' minlength="3" maxlength="30" required>
 <div id='errorMessage'></div>
 <button type='submit'>Add to your collection!</button>
 </form>
