@@ -9,22 +9,28 @@ const html = /*html*/ `
 <h2>Sign up to start adding to your Pokemon collection</h2>
 <form class="signup-form"> 
 
-  <label for="email">Email</label>
+  <label for="email">Email<span aria-hidden="true">*</span></label>
   <input type="email" id="email" 
-  placeholder="Insert email here" 
+  placeholder="Insert email here"
+  maxlength="50" 
   name="email" required>
 
-  <label for="password">Password</label>
+  <label for="password">Password<span aria-hidden="true">*</span></label>
   <input type="password" id="password" 
-  placeholder="Insert password here" 
+  placeholder="Insert password here"
+  minlength="8"
+  maxlength="24"
   name="password" required>
 
-  <label for="name">Name</label>
+  <label for="name">Name<span aria-hidden="true">*</span></label>
   <input type="text" id="name" 
-  placeholder="Insert name here" 
+  placeholder="Insert name here"
+  maxlength="24" 
   name="name" required>
   
-  <div id="errorMessage"></div>
+  <div id="errorMessage">
+	<p>Your password should be at least 8 characters in length</p>
+  </div>
 
   <button type="submit">Sign up</button>
 </form>
@@ -50,7 +56,8 @@ function signUp({ redirect }) {
 			})
 			.catch((error) => {
 				console.error(error);
-				app.querySelector("#errorMessage").append("Something went wrong :(");
+				app.querySelector("#errorMessage").textContent = "";
+				app.querySelector("#errorMessage").append("Please make sure your password is 8 characters");
 			});
 	});
 }
