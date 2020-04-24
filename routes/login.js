@@ -6,22 +6,23 @@ const html = /*html*/ `
 <nav>
   <a href="/">Home</a>
 </nav>
-<h2>Login to add to your Pokemon collection</h2>
-<form class="login-form"> 
 
-  <label for="email">Email<span aria-hidden="true">*</span></label>
-  <input type="email" id="email" 
-  placeholder="Insert email here" 
-  name="email" required>
+<form class="login-form">
+	<h2>Log in to add to your Pokemon collection</h2>
 
-  <label for="password">Password<span aria-hidden="true">*</span></label>
-  <input type="password" id="password" 
-  placeholder="Insert password here" 
-  name="password" required>
-  
-  <div id="errorMessage"></div>
+	<label for="email">Email<span aria-hidden="true">*</span></label>
+	<input type="email" id="email" 
+	placeholder="Insert email here" 
+	name="email" required>
 
-  <button type="submit">Log In</button>
+	<label for="password">Password<span aria-hidden="true">*</span></label>
+	<input type="password" id="password" 
+	placeholder="Insert password here" 
+	name="password" required>
+
+	<div id="errorMessage"></div>
+
+	<button type="submit">Log In</button>
 </form>
 `;
 
@@ -46,7 +47,11 @@ function logIn({ redirect }) {
 			.catch((error) => {
 				console.error(error);
 				app.querySelector("#errorMessage").textContent = "";
-				app.querySelector("#errorMessage").append("Your username does not exist or your password does not match");
+				app
+					.querySelector("#errorMessage")
+					.append(
+						"Your username does not exist or your password does not match"
+					);
 			});
 	});
 }

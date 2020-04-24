@@ -58,3 +58,26 @@ li {
 	padding: 2rem;
 	box-shadow: 2px 2px darkgrey;
 }
+
+/* FORM STYLES */
+form {
+	width: 80vw;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-right: 0.2px solid darkgray;
+	border-bottom: 0.2px solid darkgray;
+	border-left: 0.2px solid darkgray;
+}
+input {
+	margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+	color: rgba(0, 0, 0, 0.8);
+}
+
+form h2 {
+	text-align: center;
+}
