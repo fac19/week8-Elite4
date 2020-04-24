@@ -6,33 +6,34 @@ const html = /*html*/ `
 <nav>
   <a href="/">Home</a>
 </nav>
-<h2>Sign up to start adding to your Pokemon collection</h2>
-<form class="signup-form"> 
 
-  <label for="email">Email<span aria-hidden="true">*</span></label>
-  <input type="email" id="email" 
-  placeholder="Insert email here"
-  maxlength="50" 
-  name="email" required>
+<form class="signup-form">
+	<h2>Sign up to start adding to your Pokemon collection</h2>
 
-  <label for="password">Password<span aria-hidden="true">*</span></label>
-  <input type="password" id="password" 
-  placeholder="Insert password here"
-  minlength="8"
-  maxlength="24"
-  name="password" required>
+	<label for="email">Email<span aria-hidden="true">*</span></label>
+	<input type="email" id="email" 
+	placeholder="Insert email here"
+	maxlength="50" 
+	name="email" required>
 
-  <label for="name">Name<span aria-hidden="true">*</span></label>
-  <input type="text" id="name" 
-  placeholder="Insert name here"
-  maxlength="24" 
-  name="name" required>
-  
-  <div id="errorMessage">
+	<label for="password">Password<span aria-hidden="true">*</span></label>
+	<input type="password" id="password" 
+	placeholder="Insert password here"
+	minlength="8"
+	maxlength="24"
+	name="password" required>
+
+	<label for="name">Name<span aria-hidden="true">*</span></label>
+	<input type="text" id="name" 
+	placeholder="Insert name here"
+	maxlength="24" 
+	name="name" required>
+
+	<div id="errorMessage">
 	<p>Your password should be at least 8 characters in length</p>
-  </div>
+	</div>
 
-  <button type="submit">Sign up</button>
+	<button type="submit">Sign up</button>
 </form>
 `;
 
