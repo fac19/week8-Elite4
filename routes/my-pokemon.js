@@ -42,22 +42,45 @@ function createMyPokemonListItem(pokemon) {
 
 		// editBut.addEventListener("click", ()=>{
 		// 	const token = localStorage.getItem("token");
-		// 	query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
-		// 		method: "PUT",
-		// 		headers: {
-		// 			authorization: `Bearer ${token}`,
-		// 			body: {"name": ``}
-		// 		}
-		// 	})
-		// 	.then(()=>{
-				
-		// 	}).catch(()=>{
-		// 		console.error(error);
-		// 		app.querySelector("#errorMessage").append("Editing pokemon failed");
-		// 	})
+			
+		// 	//create Form
+		// 	const form = document.createElement("form")
+		// 	const label = document.createElement("label")
+		// 	const button = document.createElement("button")
+		//   	const input = document.createElement("input")
+			
+		// 	label.append("New Name:", {"for": "name"}); 
+		// 	input.append("", {"type": "text", "name":"name", "id":"name", "minlength":"1", "maxlength":"50"});
+		// 	button.append("Make Changes", {"type": "submit"})
+		// 	form.append(label, input, button, {"id": "editForm"});
+
+		// 	//append form to list
+		// 	li.append(form);
+			
+		// 	const editForm = document.querySelector("editForm");
+		// 	editForm.addEventListener("submit", () => {
+		// 		event.preventDefault();
+		// 		const formData = new FormData(event.target);
+		// 		const formObject = Object.fromEntries(formData);
+		// 		query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
+		// 			method: "PUT",
+		// 			headers: {
+		// 				authorization: `Bearer ${token}`,
+		// 				"content-type": "application/json"
+		// 			},
+		// 			body: JSON.stringify(formObject)
+		// 		})
+		// 		.then(()=>{
+		// 			redirect("/my-pokemon");
+		// 		}).catch(()=>{
+		// 			console.error(error);
+		// 			app.querySelector("#errorMessage").append("Editing pokemon failed");
+		// 		})
+		// 	});
+
 		// });
-	
-		li.append(h2, type, deleteBut, editBut);
+
+		li.append(h3, type, deleteBut, editBut);
 		return li;
 	} else {
 		return "";
