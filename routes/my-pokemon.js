@@ -39,7 +39,22 @@ function createMyPokemonListItem(pokemon) {
 			})
 		});
 
-		
+		// editBut.addEventListener("click", ()=>{
+		// 	const token = localStorage.getItem("token");
+		// 	query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
+		// 		method: "PUT",
+		// 		headers: {
+		// 			authorization: `Bearer ${token}`,
+		// 			body: {"name": ``}
+		// 		}
+		// 	})
+		// 	.then(()=>{
+				
+		// 	}).catch(()=>{
+		// 		console.error(error);
+		// 		app.querySelector("#errorMessage").append("Editing pokemon failed");
+		// 	})
+		// });
 	
 		li.append(h2, type, deleteBut, editBut);
 		return li;
