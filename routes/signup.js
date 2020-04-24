@@ -1,12 +1,12 @@
 import query from "../query.js";
 
 const app = document.querySelector("#app");
-const loggedOutNav = document.querySelector("#loggedOutNav");
 
 const html = /*html*/ `
 <nav>
   <a href="/">Home</a>
 </nav>
+<h2>Sign up to start adding to your Pokemon collection</h2>
 <form class="signup-form"> 
 
   <label for="email">Email</label>
