@@ -1,0 +1,46 @@
+* {
+    margin: 0 auto;
+}
+
+#app {
+    margin: 0 auto;
+    font-family: 'Open sans', sans-serif;
+}
+
+
+h1 {
+    padding-top: 10px;
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+    text-shadow: 4px 3px black;
+}
+
+.banner {
+    position: relative;
+    margin: 0 auto;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(218, 0, 0);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: darkgray;
+    width: 100vw
+}
+
+nav a {
+    padding: 7px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    width: 75%;
+    text-align: center;
+    list-style: none;
+    border: 1px solid black;
+}

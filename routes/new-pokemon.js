@@ -7,7 +7,7 @@ const loggedoutHTML = /*html*/ `
 
 const loggedinHTML = /*html*/ `
 <nav></nav>
-<h1>Add a new Pokemon</h1>
+<h2>Add a new Pokemon</h2>
 <form>
 <label for='name'>Name: </label>
 <input type='text' name='name' id='name'>

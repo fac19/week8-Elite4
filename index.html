@@ -3,25 +3,32 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 		<title>FAC19 The Pokemon Choose You</title>
 	</head>
 	<body>
+		<div class="banner">
+			<h1>Welcome to the Pokemon World!</h1>
+		</div>
 		<div id="app"></div>
 		<template id="loggedOutNav">
-				<nav>
-					<a href="/">Home</a>
-					<a href="/sign-up">Sign Up</a>
-					<a href="/login">Log In</a>
-				</nav>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/sign-up">Sign Up</a>
+				<a href="/login">Log In</a>
+			</nav>
 		</template>
 		<template id="loggedInNav">
-				<nav>
-					<a href="/">Home</a>
-					<a href="/my-pokemon">My Pokemon</a>
-					<a href="/new-pokemon">Add a Pokemon</a>
-					<a href="/logout">Log Out</a>
-				</nav>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/my-pokemon">My Pokemon</a>
+				<a href="/new-pokemon">Add a Pokemon</a>
+				<a href="/logout">Log Out</a>
+			</nav>
 		</template>
 		<script async defer type="module" src="app.js"></script>
 	</body>
