@@ -6,6 +6,7 @@ const loggedInNav = document.querySelector("#loggedInNav");
 
 const html = /*html*/ `
 <nav></nav>
+<h2>All your lovely pokemon!</h2>
 <div id="errorMessage"></div>
 <ul></ul>
 `;
@@ -14,11 +15,11 @@ function createMyPokemonListItem(pokemon) {
 	const userId = localStorage.getItem("userId");
 	if (pokemon.owner === parseInt(userId)) {
 		const li = document.createElement("li");
-		const h2 = document.createElement("h2");
+		const h3 = document.createElement("h3");
 		const type = document.createElement("p");
 		const deleteBut = document.createElement("button");
 		const editBut = document.createElement("button");
-		h2.append(pokemon.name);
+		h3.append(pokemon.name);
 		type.append(pokemon.breed);
 		deleteBut.append("Delete");
 		editBut.append("Edit"); 
@@ -79,7 +80,6 @@ function myPokemon() {
 
 	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
-			console.log(pokeArr);
 			const pokemonList = pokeArr.map((pokemon) =>
 				createMyPokemonListItem(pokemon)
 			);
