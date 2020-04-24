@@ -1,0 +1,80 @@
+* {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#app {
+	text-align: center;
+	margin: 0 auto;
+	font-family: "Open sans", sans-serif;
+}
+
+h1 {
+	padding: 25px 0 7px 0;
+	font-family: "Bangers", cursive;
+	font-size: 4rem;
+	text-align: center;
+	color: white;
+	text-shadow: 4px 3px black;
+}
+
+.banner {
+	min-height: 12vh;
+	width: 100%;
+	background-color: rgb(218, 0, 0);
+}
+
+.banner-img {
+	object-fit: cover;
+	width: 100%;
+	height: 120px;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	background-color: darkgray;
+	width: 100%;
+}
+
+nav a {
+	padding: 7px 20px;
+	text-decoration: none;
+	color: white;
+}
+
+nav a:hover {
+	color: black;
+}
+
+li {
+	width: 60%;
+	text-align: center;
+	list-style: none;
+	border: 1px solid black;
+	padding: 2rem;
+	box-shadow: 2px 2px darkgrey;
+}
+
+/* FORM STYLES */
+form {
+	width: 80vw;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-right: 0.2px solid darkgray;
+	border-bottom: 0.2px solid darkgray;
+	border-left: 0.2px solid darkgray;
+}
+input {
+	margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+	color: rgba(0, 0, 0, 0.8);
+}
+
+form h2 {
+	text-align: center;
+}
