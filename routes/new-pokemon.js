@@ -2,17 +2,17 @@ import query from "../query.js";
 
 const loggedoutHTML = /*html*/ `
 <nav></nav>
- <h1>You must be logged in to add a Pokemon</h1>
+ <h2>You must be logged in to add a Pokemon</h2>
  `;
 
 const loggedinHTML = /*html*/ `
 <nav></nav>
-<h1>Add a new Pokemon</h1>
+<h2>Add a new Pokemon</h2>
 <form>
 <label for='name'>Name: </label>
-<input type='text' name='name' id='name'>
-<label for='breed'>Type: </label>
-<input type='text' name='breed' id='breed'>
+<input type='text' name='name' id='name' minlength="1" maxlength="50" required>
+<label for='breed'>Species: </label>
+<input type='text' name='breed' id='breed' minlength="3" maxlength="30" required>
 <div id='errorMessage'></div>
 <button type='submit'>Add to your collection!</button>
 </form>
@@ -37,7 +37,6 @@ function newPokemon({ redirect }) {
 			event.preventDefault();
 			const formData = new FormData(event.target);
 			const formObject = Object.fromEntries(formData);
-			console.log(formObject);
 			query(`https://fac19-pokemon.herokuapp.com/v1/dogs`, {
 				method: "POST",
 				headers: {

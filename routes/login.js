@@ -6,6 +6,7 @@ const html = /*html*/ `
 <nav>
   <a href="/">Home</a>
 </nav>
+<h2>Login to add to your Pokemon collection</h2>
 <form class="login-form"> 
 
   <label for="email">Email</label>

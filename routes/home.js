@@ -12,11 +12,11 @@ const html = /*html*/ `
 
 function createPokemonListItem(pokemon) {
 	const li = document.createElement("li");
-	const h2 = document.createElement("h2");
-	h2.append(pokemon.name);
+	const h3 = document.createElement("h3");
+	h3.append(pokemon.name);
 	const type = document.createElement("p");
 	type.append(pokemon.breed);
-	li.append(h2, type);
+	li.append(h3, type);
 	return li;
 }
 
@@ -33,7 +33,6 @@ function home() {
 
 	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
-			console.log(pokeArr);
 			const pokemonList = pokeArr.map((pokemon) =>
 				createPokemonListItem(pokemon)
 			);
