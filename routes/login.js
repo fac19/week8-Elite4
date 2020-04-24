@@ -8,12 +8,12 @@ const html = /*html*/ `
 </nav>
 <form class="login-form"> 
 
-  <label for="email">Email</label>
+  <label for="email">Email<span aria-hidden="true">*</span></label>
   <input type="email" id="email" 
   placeholder="Insert email here" 
   name="email" required>
 
-  <label for="password">Password</label>
+  <label for="password">Password<span aria-hidden="true">*</span></label>
   <input type="password" id="password" 
   placeholder="Insert password here" 
   name="password" required>
@@ -44,7 +44,8 @@ function logIn({ redirect }) {
 			})
 			.catch((error) => {
 				console.error(error);
-				app.querySelector("#errorMessage").append("Something went wrong :(");
+				app.querySelector("#errorMessage").textContent = "";
+				app.querySelector("#errorMessage").append("Your username does not exist or your password does not match");
 			});
 	});
 }
