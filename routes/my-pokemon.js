@@ -23,14 +23,16 @@ function createMyPokemonListItem(pokemon) {
 		type.append(pokemon.breed);
 		deleteBut.append("Delete");
 		editBut.append("Edit"); 
-		
+		li.append(h3, type, deleteBut, editBut);
+
 		deleteBut.addEventListener("click", ()=>{
 			const token = localStorage.getItem("token");
 			query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
 				method: "DELETE",
 				headers: {
 					authorization: `Bearer ${token}`
-				}
+				},
+				mode: cors
 			})
 			.then(()=>{
 				li.remove(); 
@@ -40,28 +42,92 @@ function createMyPokemonListItem(pokemon) {
 			})
 		});
 
+		function createEditForm(){
+			const promise = new Promise((resolve, reject)=>{
+				function createNode(tag, props, ...children) {
+					const element = document.createElement(tag);
+					const elementWithProps = Object.assign(element, props);
+					elementWithProps.append(...children);
+					return elementWithProps;
+				}
+				
+				//create Form
+				const label = createNode("label", {"for": "name"}, "New Name:")
+				const button = createNode("button", {"type": "submit"}, "Make Changes")
+				const input = createNode("input", {"type": "text", "name":"name", "id":"name", "minlength":"1", "maxlength":"50"})
+				const form = createNode("form", {"id": "editForm"}, label, input, button)
+				
+				resolve(form)
+				
+				reject("form creation failed");
+			});
+			return promise;
+		}
+		
+		editBut.addEventListener("click", ()=>{	
+			createEditForm()
+				.then((form)=>{
+					li.append(form);
+					console.log(li);
+				})
+				.then(()=>{
+					return document.querySelector("#editForm");
+				})
+				.then((editForm)=>{
+					const token = localStorage.getItem("token");
+					editForm.addEventListener("submit", () => {
+						event.preventDefault();
+						const formData = new FormData(event.target);
+						const formObject = Object.fromEntries(formData);
+						console.log(formObject)
+						query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
+							method: "PUT",
+							headers: {
+								authorization: `Bearer ${token}`,
+								"content-type": "application/json"
+							},
+							body: JSON.stringify(formObject)
+						})
+						.then(()=>{
+							console.log("redirect1");
+							redirect("/my-pokemon");
+							console.log("redirect2");
+						}).catch((error)=>{
+							console.error(error);
+							app.querySelector("#errorMessage").append("Editing pokemon failed");
+						})
+					});
+				})
+				.catch(console.log);
+		})
+
 		// editBut.addEventListener("click", ()=>{
 		// 	const token = localStorage.getItem("token");
 			
-		// 	//create Form
-		// 	const form = document.createElement("form")
-		// 	const label = document.createElement("label")
-		// 	const button = document.createElement("button")
-		//   	const input = document.createElement("input")
+		// 	function createNode(tag, props, ...children) {
+		// 		const element = document.createElement(tag);
+		// 		const elementWithProps = Object.assign(element, props);
+		// 		elementWithProps.append(...children);
+		// 		return elementWithProps;
+		// 	}
 			
-		// 	label.append("New Name:", {"for": "name"}); 
-		// 	input.append("", {"type": "text", "name":"name", "id":"name", "minlength":"1", "maxlength":"50"});
-		// 	button.append("Make Changes", {"type": "submit"})
-		// 	form.append(label, input, button, {"id": "editForm"});
-
+		// 	//create Form
+		// 	const label = createNode("label", {"for": "name"}, "New Name:")
+		// 	const button = createNode("button", {"type": "submit"}, "Make Changes")
+		// 	const input = createNode("input", {"type": "text", "name":"name", "id":"name", "minlength":"1", "maxlength":"50"})
+		// 	const form = createNode("form", {"id": "editForm"}, label, input, button)
+		
 		// 	//append form to list
 		// 	li.append(form);
-			
-		// 	const editForm = document.querySelector("editForm");
+		// });
+
+		// const editForm = document.querySelector("#editForm");
+		// if(editForm){
 		// 	editForm.addEventListener("submit", () => {
 		// 		event.preventDefault();
 		// 		const formData = new FormData(event.target);
 		// 		const formObject = Object.fromEntries(formData);
+		// 		console.log(formObject)
 		// 		query(`https://fac19-pokemon.herokuapp.com/v1/dogs/${pokemon.id}`, {
 		// 			method: "PUT",
 		// 			headers: {
@@ -77,10 +143,8 @@ function createMyPokemonListItem(pokemon) {
 		// 			app.querySelector("#errorMessage").append("Editing pokemon failed");
 		// 		})
 		// 	});
+		// }	
 
-		// });
-
-		li.append(h3, type, deleteBut, editBut);
 		return li;
 	} else {
 		return "";
@@ -103,9 +167,9 @@ function myPokemon() {
 
 	query("https://fac19-pokemon.herokuapp.com/v1/dogs")
 		.then((pokeArr) => {
-			const pokemonList = pokeArr.map((pokemon) =>
-				createMyPokemonListItem(pokemon)
-			);
+			const pokemonList = pokeArr.map((pokemon) => {
+				return createMyPokemonListItem(pokemon)
+			});
 			app.querySelector("ul").append(...pokemonList);
 		})
 		.catch((error) => {
